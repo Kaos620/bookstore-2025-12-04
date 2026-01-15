@@ -26,6 +26,7 @@ public class Book extends Publication {
         // 2. Initialize Self (Author)
         System.out.println("Enter Author:");
         this.author = getInput("Unknown Author");
+//        setAuthor(getInput("Unknown Author"));
 
         // 3. Initialize Parent (Copies/Price)
         super.initPriceCopies();

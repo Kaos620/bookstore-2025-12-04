@@ -14,9 +14,12 @@ public class App {
 
     public void run() {
         populate();
+        Notebook nb=new Notebook();
+        nb.initialize();
+        System.out.println(nb);
         int choice = 0;
         while (choice != 99) {
-            System.out.println("\n***********************");
+            System.out.println("\n\"Rafael's Superstore - v1.0");
             System.out.println(" 1. Add Items");
             System.out.println(" 2. Edit Items");
             System.out.println(" 3. Delete Items");
@@ -68,6 +71,10 @@ public class App {
             System.out.println("2. Add Magazine");
             System.out.println("3. Add DiscMag");
             System.out.println("4. Add Ticket");
+            System.out.println("4. Add Notebook");
+            System.out.println("4. Add Pen");
+            System.out.println("4. Add Mouse");
+            System.out.println("4. Add Keyboard");
             System.out.println("99. Exit");
 
             try {
@@ -86,6 +93,9 @@ public class App {
                 case 2: item = new Magazine(); break;
                 case 3: item = new DiscMag(); break;
                 case 4: item = new Ticket(); break;
+                case 5: item = new Notebook(); break;
+                case 6: item = new Pen(); break;
+                case 7: item = new Mouse(); break;
                 default: System.out.println("Invalid selection."); continue;
             }
 
