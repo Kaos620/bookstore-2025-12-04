@@ -2,6 +2,12 @@ classDiagram
     Editable <|--Product
     Product <|--Ticket
     Product <|--Publication
+    Product <|-- Stationery
+    Product <|-- ComputerHardware
+    ComputerHardware <|-- Keyboard
+    ComputerHardware <|-- Mouse
+    Stationery <|-- Notebook
+    Stationery <|-- Pen
     Publication <|-- Book
     Publication <|-- Magazine
     Magazine <|-- DiscMag
@@ -89,6 +95,72 @@ classDiagram
         +showTotal()
         +sellItem(SaleableItem item)
     }
+
+    class Stationery{
+        <<abstract>>
+        -String brand
+        +setBrand(String)
+        +getBrand()
+        +edit()
+        +initialize()
+        +getPrice()
+        +toString()
+        +hashCode()
+    }
+
+    class Notebook{
+        -int pageCount
+        +getPageCount()
+        +setPageCount(int)
+        +initialize()
+        +sellItem()
+    }
+
+    class Pen{
+        -String color
+        +getColor()
+        +setColor(String)
+        +initialize()
+        +sellItem()
+    }
+
+    class ComputerHardware{
+        <<abstract>>
+        -String brand
+        -String category
+        +setBrand(String)
+        +getBrand()
+        +setCategory(String)
+        +getCategory()
+        +edit()
+        +initialize()
+        +getPrice()
+        +toString()
+        +hashCode()
+    }
+
+    class Keyboard{
+        -int sizeType
+        -boolean wirelessAvailable
+        +getSizeType()
+        +setSizeType(int)
+        +isWirelessAvailable()
+        +setWirelessAvailable(boolean)
+        +initialize()
+        +sellItem()
+    }
+
+    class Mouse{
+        -int dpi
+        -int numOfButtons
+        +getDpi()
+        +setDpi(int)
+        +getNumOfButtons()
+        +setNumOfButtons(int)
+        +initialize()
+        +sellItem()
+    }
+
     class SaleableItem {
         <<interface>>
         +sellItem()
