@@ -4,7 +4,7 @@ classDiagram
     Product <|--Publication
     Product <|-- Stationery
     Product <|-- ComputerHardware
-    ComputerHardware <|-- Keyboard
+    ComputerHardware <|-- KeyboardTest
     ComputerHardware <|-- Mouse
     Stationery <|-- Notebook
     Stationery <|-- Pen
@@ -139,7 +139,7 @@ classDiagram
         +hashCode()
     }
 
-    class Keyboard{
+    class KeyboardTest{
         -int sizeType
         -boolean wirelessAvailable
         +getSizeType()
