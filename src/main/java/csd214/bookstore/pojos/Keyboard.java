@@ -1,5 +1,7 @@
 package csd214.bookstore.pojos;
 
+import java.util.Objects;
+
 public class Keyboard extends ComputerHardware{
     private int sizeType;
     private boolean wirelessAvailable;
@@ -35,4 +37,15 @@ public class Keyboard extends ComputerHardware{
         System.out.println("Selling " + getBrand() + " keyboard...");
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Keyboard keyboard = (Keyboard) o;
+        return sizeType == keyboard.sizeType && wirelessAvailable == keyboard.wirelessAvailable;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), sizeType, wirelessAvailable);
+    }
 }

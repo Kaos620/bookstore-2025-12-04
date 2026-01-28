@@ -1,5 +1,7 @@
 package csd214.bookstore.pojos;
 
+import java.util.Objects;
+
 public class Pen extends Stationery{
 
     private String color;
@@ -12,6 +14,15 @@ public class Pen extends Stationery{
         this.color = color;
     }
 
+    public Pen(String brand, String color, double price) {
+        super(brand);
+        this.color = color;
+    }
+
+    public Pen() {
+
+    }
+
     @Override
     public void initialize() {
         super.initialize(); // Critical: let Parent ask for Name/Price
@@ -22,5 +33,17 @@ public class Pen extends Stationery{
     @Override
     public void sellItem() {
         System.out.println("Selling " + getColor() + " pen...");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Pen pen = (Pen) o;
+        return Objects.equals(color, pen.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), color);
     }
 }

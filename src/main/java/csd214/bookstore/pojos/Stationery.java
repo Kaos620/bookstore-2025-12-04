@@ -9,12 +9,14 @@ public abstract class Stationery extends Product{
         this.brand = brand;
     }
 
-    public Object getBrand() {
+    public String getBrand() {
         return brand;
     }
 
-    public Stationery() {
+    public Stationery() { }
 
+    public Stationery(String brand) {
+        this.brand = brand;
     }
 
     public String toString() {
@@ -22,7 +24,7 @@ public abstract class Stationery extends Product{
     }
 
     public int hashCode() {
-        return Objects.hashCode(getBrand());
+        return Objects.hash(super.hashCode(), brand);
     }
 
     @Override

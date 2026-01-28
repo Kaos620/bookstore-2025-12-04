@@ -1,5 +1,7 @@
 package csd214.bookstore.pojos;
 
+import java.util.Objects;
+
 public class Mouse extends ComputerHardware{
     private int dpi;
     private int numOfButtons;
@@ -32,5 +34,17 @@ public class Mouse extends ComputerHardware{
     @Override
     public void sellItem() {
         System.out.println("Selling " + getBrand() + " mouse...");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Mouse mouse = (Mouse) o;
+        return dpi == mouse.dpi && numOfButtons == mouse.numOfButtons;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), dpi, numOfButtons);
     }
 }
