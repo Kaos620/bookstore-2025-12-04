@@ -22,6 +22,12 @@ public class Mouse extends ComputerHardware{
         this.numOfButtons = numberOfButtons;
     }
 
+    public Mouse(String brand, int numOfButtons, int dpi, double price) {
+        super(brand);
+        this.numOfButtons = numOfButtons;
+        this.dpi = dpi;
+    }
+
     @Override
     public void initialize() {
         super.initialize(); // Critical: let Parent ask for Name/Price

@@ -18,6 +18,10 @@ public abstract class ComputerHardware extends Product{
 
     }
 
+    public ComputerHardware(String brand){
+        this.brand = brand;
+    }
+
     public String getCategory() {
         return category;
     }
