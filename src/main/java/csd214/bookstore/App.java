@@ -101,7 +101,7 @@ public class App {
             }
 
             if(item instanceof Editable) {
-                ((Editable)item).initialize();
+                ((Editable)item).initialize(input);
             }
             addItem(item);
         }
@@ -197,7 +197,7 @@ public class App {
     }
 
     public void editItem(Editable item) {
-        item.edit();
+        item.edit(input);
     }
 
     public void deleteItem() {

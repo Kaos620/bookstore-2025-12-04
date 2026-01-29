@@ -1,6 +1,7 @@
 package csd214.bookstore.pojos;
 
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Pen extends Stationery{
 
@@ -24,10 +25,15 @@ public class Pen extends Stationery{
     }
 
     @Override
-    public void initialize() {
-        super.initialize(); // Critical: let Parent ask for Name/Price
+    public void edit(Scanner input) {
+
+    }
+
+    @Override
+    public void initialize(Scanner input) {
+        super.initialize(input); // Critical: let Parent ask for Name/Price
         System.out.println("Enter Pen Color:");
-        setColor(getInput(getColor()));
+        setColor(getInput(input, "Unknown color"));
     }
 
     @Override

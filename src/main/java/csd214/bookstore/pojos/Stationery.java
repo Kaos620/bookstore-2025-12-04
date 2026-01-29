@@ -1,6 +1,7 @@
 package csd214.bookstore.pojos;
 
 import java.util.Objects;
+import java.util.Scanner;
 
 public abstract class Stationery extends Product{
     private String brand;
@@ -28,20 +29,20 @@ public abstract class Stationery extends Product{
     }
 
     @Override
-    public void edit() {
+    public void edit(Scanner input) {
         // 1. Edit Parent fields (Title, Price, Copies)
        // super.edit();
 
         // 2. Edit Self fields
         System.out.println("Edit Author [" + this.brand + "]:");
-        this.brand = getInput(this.brand);
+        this.brand = getInput(input, this.brand);
     }
 
     @Override
-    public void initialize() {
+    public void initialize(Scanner input) {
       //  super.initialize(); // Critical: let Parent ask for Name/Price
         System.out.println("Enter Brand:");
-        setBrand(getInput(("Generic")));
+        setBrand(getInput(input, "Generic"));
     }
 
     @Override

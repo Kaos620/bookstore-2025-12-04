@@ -1,6 +1,7 @@
 package csd214.bookstore.pojos;
 
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Keyboard extends ComputerHardware{
     private int sizeType;
@@ -37,12 +38,17 @@ public class Keyboard extends ComputerHardware{
     public Keyboard() { };
 
     @Override
-    public void initialize() {
+    public void edit(Scanner input) {
+
+    }
+
+    @Override
+    public void initialize(Scanner input) {
         super.initialize(); // Critical: let Parent ask for Name/Price
         System.out.println("Enter keyboard`s size: ");
-        setSizeType(getInput(getSizeType()));
+        setSizeType(getInput(input, getSizeType()));
         System.out.println("Is wireless connection available?: ");
-        setWirelessAvailable(getInput(isWirelessAvailable()));
+        setWirelessAvailable(getInput(input, isWirelessAvailable()));
     }
 
     @Override

@@ -1,6 +1,7 @@
 package csd214.bookstore.pojos;
 
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Mouse extends ComputerHardware{
     private int dpi;
@@ -31,12 +32,17 @@ public class Mouse extends ComputerHardware{
     public Mouse(){ }
 
     @Override
-    public void initialize() {
+    public void initialize(Scanner input) {
         super.initialize(); // Critical: let Parent ask for Name/Price
         System.out.println("Enter Mouse`s number of buttons: ");
-        setNumOfButtons(getInput(getNumOfButtons()));
+        setNumOfButtons(getInput(input, getNumOfButtons()));
         System.out.println("Enter Mouse`s max DPI: ");
-        setDpi(getInput(getDpi()));
+        setDpi(getInput(input, getDpi()));
+    }
+
+    @Override
+    public void edit(Scanner input) {
+
     }
 
     @Override
