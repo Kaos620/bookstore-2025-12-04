@@ -28,6 +28,8 @@ public class Mouse extends ComputerHardware{
         this.dpi = dpi;
     }
 
+    public Mouse(){ }
+
     @Override
     public void initialize() {
         super.initialize(); // Critical: let Parent ask for Name/Price

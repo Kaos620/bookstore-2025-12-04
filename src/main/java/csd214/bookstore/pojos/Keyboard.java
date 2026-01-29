@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Keyboard extends ComputerHardware{
     private int sizeType;
     private boolean wirelessAvailable;
+    private int stock;
 
     public int getSizeType() {
         return sizeType;
@@ -22,6 +23,19 @@ public class Keyboard extends ComputerHardware{
         this.wirelessAvailable = wirelessAvailable;
     }
 
+    public int getStock() { return stock; }
+
+    public void setStock(int stock) { this.stock = stock; }
+
+    public Keyboard(String brand, int sizeType, boolean wirelessAvailable, int stock) {
+        super(brand);
+        this.sizeType = sizeType;
+        this.wirelessAvailable = wirelessAvailable;
+        this.stock = stock;
+    }
+
+    public Keyboard() { };
+
     @Override
     public void initialize() {
         super.initialize(); // Critical: let Parent ask for Name/Price
@@ -29,12 +43,13 @@ public class Keyboard extends ComputerHardware{
         setSizeType(getInput(getSizeType()));
         System.out.println("Is wireless connection available?: ");
         setWirelessAvailable(getInput(isWirelessAvailable()));
-
     }
 
     @Override
     public void sellItem() {
         System.out.println("Selling " + getBrand() + " keyboard...");
+        setStock(stock -1);
+        System.out.println(getStock() + " units available in stock");
     }
 
     @Override
@@ -48,4 +63,5 @@ public class Keyboard extends ComputerHardware{
     public int hashCode() {
         return Objects.hash(super.hashCode(), sizeType, wirelessAvailable);
     }
+
 }
