@@ -8,7 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
-
+import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BookTest {
@@ -16,6 +16,11 @@ class BookTest {
     private final InputStream originalSystemIn = System.in;
     private final PrintStream originalSystemOut = System.out;
     private ByteArrayOutputStream outputStreamCaptor;
+
+    private Scanner createMockScanner(String input) {
+        return new Scanner(new ByteArrayInputStream(input.getBytes()));
+    }
+
 
     @BeforeEach
     void setUp() {
@@ -51,7 +56,7 @@ class BookTest {
     }
 
     @Test
-    void testInitializeWithMockInput() {
+    void testInitializeWithMockInput( ) {
         // Simulate User Input:
         // 1. Title (Publication.initialize)
         // 2. Author (Book.initialize)
@@ -60,12 +65,13 @@ class BookTest {
         String simulatedInput = "The Hobbit\nJ.R.R. Tolkien\n15\n19.95\n";
 
         ByteArrayInputStream testIn = new ByteArrayInputStream(simulatedInput.getBytes());
+        Scanner mockScanner = createMockScanner(simulatedInput);
 
         Book book = new Book();
         // Inject the mock stream
-        book.setSystemInput(testIn);
+        //book.setSystemInput(testIn);
 
-        book.initialize();
+        book.initialize(mockScanner);
 
         assertEquals("The Hobbit", book.getTitle());
         assertEquals("J.R.R. Tolkien", book.getAuthor());
@@ -86,9 +92,10 @@ class BookTest {
         String simulatedInput = "New Title\n50.0\n100\nNew Author\n";
 
         ByteArrayInputStream testIn = new ByteArrayInputStream(simulatedInput.getBytes());
-        book.setSystemInput(testIn);
+        Scanner mockScanner = createMockScanner(simulatedInput);
+        //book.setSystemInput(testIn);
 
-        book.edit();
+        book.edit(mockScanner);
 
         assertEquals("New Title", book.getTitle());
         assertEquals("New Author", book.getAuthor());
@@ -105,9 +112,10 @@ class BookTest {
         String simulatedInput = "\n\n\n\n";
 
         ByteArrayInputStream testIn = new ByteArrayInputStream(simulatedInput.getBytes());
-        book.setSystemInput(testIn);
+        Scanner mockScanner = createMockScanner(simulatedInput);
+        //book.setSystemInput(testIn);
 
-        book.edit();
+        book.edit(mockScanner);
 
         assertEquals("Old Title", book.getTitle());
         assertEquals("Old Author", book.getAuthor());

@@ -1,10 +1,12 @@
 package csd214.bookstore.pojos;
 
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Notebook extends Stationery{
 
     private int pageCount;
+
 
     public int getPageCount() {
         return pageCount;
@@ -13,16 +15,20 @@ public class Notebook extends Stationery{
     public void setPageCount(int pageCount) {
         this.pageCount = pageCount;
     }
+    public Notebook(String brand, int pageCount, double price) {
+        super(brand);
+        this.pageCount = pageCount;
+    }
 
     public Notebook() {
 
     }
 
     @Override
-    public void initialize() {
-        super.initialize(); // Critical: let Parent ask for Name/Price
+    public void initialize(Scanner input) {
+        //super.initialize(); // Critical: let Parent ask for Name/Price
         System.out.println("Enter Page Count:");
-        setPageCount(getInput(getPageCount()));
+        setPageCount(getInput(input, getPageCount()));
     }
 
     @Override

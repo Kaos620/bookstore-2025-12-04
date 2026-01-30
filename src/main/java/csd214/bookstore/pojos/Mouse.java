@@ -33,7 +33,7 @@ public class Mouse extends ComputerHardware{
 
     @Override
     public void initialize(Scanner input) {
-        super.initialize(); // Critical: let Parent ask for Name/Price
+        super.initialize(input); // Critical: let Parent ask for Name/Price
         System.out.println("Enter Mouse`s number of buttons: ");
         setNumOfButtons(getInput(input, getNumOfButtons()));
         System.out.println("Enter Mouse`s max DPI: ");
