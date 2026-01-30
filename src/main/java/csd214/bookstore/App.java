@@ -14,9 +14,6 @@ public class App {
 
     public void run() {
         populate();
-        Notebook nb=new Notebook();
-        nb.initialize(input);
-        System.out.println(nb);
         int choice = 0;
         while (choice != 99) {
             System.out.println("\n\"Rafael's Superstore - v1.0");

@@ -7,6 +7,17 @@ public class Pen extends Stationery{
 
     private String color;
 
+    @Override
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    private double price;
+
     public String getColor() {
         return color;
     }
@@ -18,6 +29,7 @@ public class Pen extends Stationery{
     public Pen(String brand, String color, double price) {
         super(brand);
         this.color = color;
+        this.price = price;
     }
 
     public Pen() {
@@ -34,6 +46,8 @@ public class Pen extends Stationery{
         super.initialize(input); // Critical: let Parent ask for Name/Price
         System.out.println("Enter Pen Color:");
         setColor(getInput(input, "Unknown color"));
+        System.out.println("Enter Pen Price:");
+        setPrice(Double.parseDouble(getInput(input, "Pen Price")));
     }
 
     @Override

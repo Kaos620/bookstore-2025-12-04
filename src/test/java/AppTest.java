@@ -30,7 +30,6 @@ public class AppTest{
         SaleableItem result = app.findItem(expected);
 
         assertNotNull(result, "The App should contain the Blue Bic Pen we added via console");
-        app.findItem(expected);
     }
 }
 
