@@ -10,7 +10,7 @@ public class AppTest{
         // 1. Build the Script
         StringBuilder script = new StringBuilder();
         script.append("1\n");        // Main Menu: Add Items
-        script.append("5\n");        // Add Menu: Add Pen (Assuming 5 is Pen)
+        script.append("6\n");        // Add Menu: Add Pen (Assuming 5 is Pen)
         script.append("Bic\n");      // Brand (Stationery)
         script.append("Blue\n");     // Color (Pen)
         script.append("10\n");       // Copies (Stationery/Product)
