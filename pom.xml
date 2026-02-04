@@ -20,6 +20,11 @@
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.2.0</version>
+        </dependency>
         <!-- ... existing dependencies ... -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
