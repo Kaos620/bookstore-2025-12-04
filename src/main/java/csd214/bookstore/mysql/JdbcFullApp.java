@@ -15,7 +15,7 @@ public class JdbcFullApp {
 
             // 2. Populate
             System.out.println("\n=== INSERTING DATA ===");
-            insertBook(new Book("George Orwell", "1984", 15.99, 10));
+            insertBook(new Book("George Orwell", "1984", 15.99, "96554685da", 10));
             insertTicket(new Ticket()); // Description set inside helper
             listAllItems();
 

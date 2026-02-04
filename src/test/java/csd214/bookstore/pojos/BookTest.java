@@ -33,7 +33,7 @@ class BookTest {
 
     @Test
     void testConstructorAndGetters() {
-        Book book = new Book("J.K. Rowling", "Harry Potter", 29.99, 10);
+        Book book = new Book("J.K. Rowling", "Harry Potter", 29.99, "997387", 10);
 
         assertEquals("Harry Potter", book.getTitle());
         assertEquals("J.K. Rowling", book.getAuthor());
@@ -43,7 +43,7 @@ class BookTest {
 
     @Test
     void testSellItem() {
-        Book book = new Book("Author", "Title", 20.0, 5);
+        Book book = new Book("Author", "Title", 20.0, "997387", 5);
 
         book.sellItem();
 
@@ -76,7 +76,7 @@ class BookTest {
     @Test
     void testEditWithMockInput() {
         // Start with existing data
-        Book book = new Book("Old Author", "Old Title", 10.0, 5);
+        Book book = new Book("Old Author", "Old Title", 10.0, "997387", 5);
 
         // Simulate User Input for edit():
         // 1. Title (Publication.edit) -> "New Title"
@@ -99,7 +99,7 @@ class BookTest {
     @Test
     void testEditWithEmptyInputPreservesValues() {
         // If user hits 'Enter' (empty string), values should remain unchanged.
-        Book book = new Book("Old Author", "Old Title", 10.0, 5);
+        Book book = new Book("Old Author", "Old Title", 10.0, "997387", 5);
 
         // Simulate empty inputs (newlines)
         String simulatedInput = "\n\n\n\n";

@@ -237,6 +237,7 @@ public class App {
                     faker.book().author(),
                     faker.book().title(),
                     faker.number().randomDouble(2, 10, 50), // Price
+                    faker.number().toString(),
                     faker.number().numberBetween(1, 20)     // Copies
             );
             addItem(b);

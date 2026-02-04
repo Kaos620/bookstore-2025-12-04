@@ -5,6 +5,16 @@ import java.util.Objects;
 public class Book extends Publication {
     private String author = "";
 
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    private String isbn = "";
+
     public Book() {
         super();
     }
@@ -13,9 +23,10 @@ public class Book extends Publication {
         this.author = author;
     }
 
-    public Book(String author, String title, double price, int copies) {
+    public Book(String author, String title, double price,String isbn, int copies) {
         super(title, price, copies);
         this.author = author;
+        this.isbn = isbn;
     }
 
     @Override
@@ -26,6 +37,8 @@ public class Book extends Publication {
         // 2. Initialize Self (Author)
         System.out.println("Enter Author:");
         this.author = getInput("Unknown Author");
+        System.out.println("Enter ISBN:");
+        this.isbn = getInput("Unknown ISBN");
 
         // 3. Initialize Parent (Copies/Price)
         super.initPriceCopies();
@@ -39,6 +52,8 @@ public class Book extends Publication {
         // 2. Edit Self fields
         System.out.println("Edit Author [" + this.author + "]:");
         this.author = getInput(this.author);
+        System.out.println("Edit ISBN [" + this.isbn + "]:");
+        this.isbn = getInput(this.isbn);
     }
 
     @Override

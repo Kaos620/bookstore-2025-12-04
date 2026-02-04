@@ -19,7 +19,7 @@ public class JdbcBookApp {
 
             // 2. Create (Insert) a Book
             System.out.println("--- INSERTING BOOK ---");
-            Book newBook = new Book("J.R.R. Tolkien", "The Hobbit", 19.99, 10);
+            Book newBook = new Book("J.R.R. Tolkien", "The Hobbit", 19.99, "95489da6", 10);
             insertBook(newBook);
             listBooks();
 
@@ -51,6 +51,7 @@ public class JdbcBookApp {
                      "title VARCHAR(255), " +
                      "author VARCHAR(255), " +
                      "price DOUBLE, " +
+                     "isbn VARCHAR(20), " +
                      "copies INT)";
 
         try (Connection conn = getConnection();
@@ -61,7 +62,7 @@ public class JdbcBookApp {
     }
 
     private static void insertBook(Book book) throws SQLException {
-        String sql = "INSERT INTO books (title, author, price, copies) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO books (title, author, price, isbn,copies) VALUES (?, ?, ?, ? ,?)";
 
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -69,6 +70,7 @@ public class JdbcBookApp {
             pstmt.setString(1, book.getTitle());
             pstmt.setString(2, book.getAuthor());
             pstmt.setDouble(3, book.getPrice());
+            pstmt.setString(5, book.getIsbn());
             pstmt.setInt(4, book.getCopies());
 
             int rows = pstmt.executeUpdate();
@@ -122,6 +124,7 @@ public class JdbcBookApp {
                 String title = rs.getString("title");
                 String author = rs.getString("author");
                 double price = rs.getDouble("price");
+                String isbn = rs.getString("isbn");
                 int copies = rs.getInt("copies");
                 int id = rs.getInt("id"); // Captured but not stored in POJO currently
 
