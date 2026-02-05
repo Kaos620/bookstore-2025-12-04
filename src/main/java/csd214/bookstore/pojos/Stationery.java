@@ -6,18 +6,18 @@ import java.util.Scanner;
 public abstract class Stationery extends Product{
     private String brand;
 
+    public Stationery() { }
+
+    public Stationery(String brand) {
+        this.brand = brand;
+    }
+
     public void setBrand(String brand){
         this.brand = brand;
     }
 
     public String getBrand() {
         return brand;
-    }
-
-    public Stationery() { }
-
-    public Stationery(String brand) {
-        this.brand = brand;
     }
 
     public String toString() {
@@ -49,4 +49,5 @@ public abstract class Stationery extends Product{
     public double getPrice() {
         return 0;
     }
+
 }

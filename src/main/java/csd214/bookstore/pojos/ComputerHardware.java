@@ -11,9 +11,10 @@ public abstract class ComputerHardware extends Product{
         this.price = price;
     }
 
-    public ComputerHardware(String brand, String category) {
+    public ComputerHardware(String brand, String category, double price) {
         this.brand = brand;
         this.category = category;
+        this.price = price;
     }
 
     private double price;
@@ -75,5 +76,7 @@ public abstract class ComputerHardware extends Product{
     public double getPrice() {
         return 0;
     }
+
+
 
 }
