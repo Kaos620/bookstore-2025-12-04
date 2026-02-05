@@ -7,11 +7,22 @@ public abstract class ComputerHardware extends Product{
     private String brand;
     private String category;
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public ComputerHardware(String brand, String category) {
+        this.brand = brand;
+        this.category = category;
+    }
+
+    private double price;
+
     public void setBrand(String brand){
         this.brand = brand;
     }
 
-    public Object getBrand() {
+    public String getBrand() {
         return brand;
     }
 
