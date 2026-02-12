@@ -24,7 +24,7 @@ public class Mouse extends ComputerHardware{
     }
 
     public Mouse(String brand, int numOfButtons, int dpi, double price) {
-        super(brand);
+        super(brand, String.valueOf(price));
         this.numOfButtons = numOfButtons;
         this.dpi = dpi;
     }

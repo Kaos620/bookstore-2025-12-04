@@ -25,7 +25,7 @@ public class JdbcMouseApp {
             // 5. Delete
             System.out.println("--- DELETING ---");
             deletePen(conn, "Logitech");
-            listWidgets(conn);
+            listMouse(conn);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -70,13 +70,13 @@ public class JdbcMouseApp {
             }
         }
     }
-    private static void updatePenPrice(Connection conn, String brand, double newPrice) throws SQLException {
+    private static void updateMousePrice(Connection conn, String brand, double newPrice) throws SQLException {
         String sql = "UPDATE pen SET price = ? WHERE brand = ?";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setDouble(1, newPrice);
             ps.setString(2, brand);
             int rows = ps.executeUpdate();
-            System.out.println("Updated " + rows + " pen(s).");
+            System.out.println("Updated " + rows + " mouse(s).");
         }
     }
 
